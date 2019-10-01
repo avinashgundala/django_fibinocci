@@ -1,3 +1,4 @@
 from django.contrib import admin
+from fib_api.models import Fibinocci
 
-# Register your models here.
+admin.site.register(Fibinocci)

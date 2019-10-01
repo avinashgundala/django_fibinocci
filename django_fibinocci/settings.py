@@ -24,9 +24,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'g9dovq*y#lbqv69(x26u(*q@kc3zm%u(*_mv*jlm%l)6ul+t%s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+#to run in local export DEBUG=True
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# DEBUG = bool(os.environ.get("DEBUG", False))
+
+
+ALLOWED_HOSTS = ['django-fibinocci.herokuapp.com']
 
 
 # Application definition

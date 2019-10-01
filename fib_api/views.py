@@ -27,17 +27,20 @@ def fib_number(request):
         validate = Fibinocci.objects.filter(element=num)
         if validate:
             obj = Fibinocci.objects.get(element=get_num)
-            result = obj.value
+            result = str(obj.value)
             end_time = time.time() - start_time
             time_taken = str(end_time)[0:7]
+            obj.time_taken=time_taken
+            obj.save()
         else:
             num = int(get_num)
             result = fibinocci_series(num)
+            result = str(result)
             obj = Fibinocci.objects.create(element=num,value=result)
-            obj.save()
             end_time = time.time() - start_time
             time_taken = str(end_time)[0:7]
-
+            obj.time_taken = time_taken
+            obj.save()
     return render(
         request,
         'index.html',
